@@ -16,8 +16,14 @@ kotlin {
 
 publishing {
     publications {
-        create<MavenPublication>("library") {
-            from(components["kotlin"])
+        register<MavenPublication>("java") {
+            groupId = "com.github.huhx"
+            artifactId = "snowflake"
+            version = "1.0.0"
+
+            afterEvaluate {
+                from(components["java"])
+            }
         }
     }
 }
